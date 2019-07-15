@@ -63,21 +63,33 @@ public class SwaggerConfig {
 
 Controller
 ~~~java
-@ApiOperation(value = "회원 가입")  //메서드 설명
-@ApiImplicitParams({              //파라미터 설명
-    @ApiImplicitParam(name = "name", value = "이름", required = true),
-    @ApiImplicitParam(name = "part", value = "파트", required = true, defaultValue = "서버"),
-    @ApiImplicitParam(name = "password", value = "비밀번호", required = true)
-})
-@ApiResponses({                   //응답 설명
-    @ApiResponse(code = 200, message = "회원 가입 성공"),
-    @ApiResponse(code = 500, message = "내부 서버 에러")
-})
-public ResponseEntity signUp(SignUpReq signUpReq) 
+@Api(description = "유저 REST API")	//컨트롤러 설명
+@Slf4j
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @ApiOperation(value = "회원 가입")  //메서드 설명
+    @ApiImplicitParams({              //파라미터 설명
+        @ApiImplicitParam(name = "name", value = "이름", required = true),
+        @ApiImplicitParam(name = "part", value = "파트", required = true, defaultValue = "서버"),
+        @ApiImplicitParam(name = "password", value = "비밀번호", required = true)
+    })
+    @ApiResponses({                   //응답 설명
+        @ApiResponse(code = 200, message = "회원 가입 성공"),
+        @ApiResponse(code = 500, message = "내부 서버 에러")
+    })
+    public ResponseEntity signUp(SignUpReq signUpReq) 
 ~~~    
 
 RequestDto
 ~~~java
-@ApiModelProperty(example = "신혜란")  //예시
-private String name;
+@ApiModel(value = "Login Request Dto : 로그인 내용", description = "로그인 내용")
+@Data
+public class LoginReq {
+    @ApiModelProperty(value = "이름", example = "신혜란")
+    private String name;
+    @ApiModelProperty(value = "비밀번호", example = "hyeran")
+    private String password;
+}
 ~~~
