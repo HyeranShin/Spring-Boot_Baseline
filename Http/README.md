@@ -30,6 +30,8 @@ Content-Type: application/json
 < ./post.json
 ~~~
 
-➤ 브라우저를 열지 않고도 IntelliJ 콘솔창에서 api 결과 바로 확인 가능
+➤ 브라우저를 열지 않고도 IntelliJ 콘솔창에서 api 결과 바로 확인 가능<br/>
+
+(.idea/httpRequests에 로그 파일 다 남음)
 
 ### 자세한 내용은 https://jojoldu.tistory.com/266 참고 
