@@ -90,9 +90,9 @@ public class LoginReq {
     @ApiModelProperty(readOnly = true) //표시 안함
     private LocalDateTime createTime;
     
-    @ApiModelProperty(value = "이름", example = "신혜란")
+    @ApiModelProperty(value = "이름", example = "신혜란", position = 1)
     private String name;
-    @ApiModelProperty(value = "비밀번호", example = "hyeran")
+    @ApiModelProperty(value = "비밀번호", example = "hyeran", position = 2)
     private String password;
 }
 ~~~
