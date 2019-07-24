@@ -27,17 +27,17 @@ public class WebMvcConfig implements WebMvcConfigurer {
 ~~~java
     private final PasswordEncoder passwordEncoder;
 
-signUp 함수 내부
+- signUp 함수 내부
     userRepository.save(signUpReqDto.toUser(passwordEncoder.encode(signUpReqDto.getPassword())));
     //toUser 함수에서 signUpReqDto의 password 대신 파라미터로 넘겨 받은 password 사용
     
-signIn 함수 내부
+- signIn 함수 내
     matchPassword(user.getPassword(), signInReqDto.getPassword());
     
-public boolean matchPassword(String password, String signInPassword) {
-        if(!passwordEncoder.matches(signInPassword, password)) {
-            throw new NotMatchException("password", "비밀번호가 일치하지 않습니다.");
-        }
-        return Boolean.TRUE;
+public boolean matchPassword(String encodedPassword, String signInPassword) {
+    if(!passwordEncoder.matches(signInPassword, encodedPassword)) { //파라미터 순서 주의
+        throw new NotMatchException("password", "비밀번호가 일치하지 않습니다.");
     }
+    return Boolean.TRUE;
+}
 ~~~
