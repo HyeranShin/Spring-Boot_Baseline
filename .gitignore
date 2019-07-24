@@ -6,6 +6,8 @@ build/
 !**/src/test/**
 
 application.properties
+application.yml
+aws.yml
 
 ### STS ###
 .apt_generated
