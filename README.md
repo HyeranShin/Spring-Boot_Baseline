@@ -22,3 +22,12 @@
 > git commit -m "(commit message)"
 > git push -u origin master
 ```
+
+---------
+배포할때 EC2 접속해서 해당 경로가서
+```
+git pull
+sudo ./gradlew build
+cd build/libs
+java -jar jar파일명.jar
+```
