@@ -45,16 +45,16 @@ public class SwaggerConfig {
     //Swagger UI 페이지에 노출할 정보 커스텀
     @SuppressWarnings("deprecation")
     private ApiInfo apiInfo() {
-        ApiInfo apiInfo = new ApiInfo(
-                "Title",
-                "Description",
-                "Version",
-                "Terms of Service URL",
-                "contact Name",
-                "License",
-                "License URL"
-        );
-        return apiInfo;
+        return new ApiInfoBuilder()
+                .description()
+                .contact()
+                .title()
+                .extensions()
+                .license()
+                .licenseUrl()
+                .termsOfServiceUrl()
+                .version()
+                .build();
     }
 }
 ~~~
